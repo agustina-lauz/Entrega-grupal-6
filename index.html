@@ -14,7 +14,7 @@
 
   <div class="container">
     <main>
-      <form action="#" method="get" class="row mt-4 was-validated">
+      <form action="#" method="get" class="row mt-4 " id="formulario" novalidate>
         <div class="col">
           <h1 class="mb-3">Registro</h1>
           <hr class="my-4">
@@ -42,26 +42,26 @@
 
             <div class="col-sm-6">
               <label for="password1" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="password1" required>
+              <input type="password" class="form-control" id="password1" required  minlength="6">
               <div class="valid-feedback"></div>
               <div class="invalid-feedback">Debe ingresar una contraseña con al menos 6 caracteres.</div>
             </div>
 
             <div class="col-sm-6">
               <label for="password2" class="form-label">Repetir contraseña</label>
-              <input type="password" class="form-control" id="password2" required>
+              <input type="password" class="form-control" id="password2" minlength="6" required>
               <div class="valid-feedback"></div>
               <div class="invalid-feedback">Debe ser igual a "contraseña".</div>
             </div>
 
             <div class="col-sm-12">
-              <button type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
+              <button type="button" class="btn btn-link ps-0 " data-bs-toggle="modal" 
                 data-bs-target="#modalTerminos">Términos del servicio</button>
                 <div class="invalid-feedback">Debe aceptar los términos del servicio.</div>
             </div>
 
 
-            <button class="btn btn-primary" type="submit">Registrarme</button>
+            <button class="btn btn-primary" type="submit" id="regBtn">Registrarme</button>
 
 
           </div>
@@ -78,7 +78,7 @@
     </footer>
   </div>
 
-  <div class="modal fade" id="modalTerminos" tabindex="-1" aria-hidden="true">
+  <div class="modal fade was-validated" id="modalTerminos" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
