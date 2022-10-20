@@ -59,6 +59,17 @@ pass2.classList.add ('is-valid') }
     else { email.classList.remove('is-valid')
     email.classList.add('is-invalid')}
 
+    if(check.checked) {
+        document.getElementById('botonterminos').classList.remove('estiloerror');
+        document.getElementById('containerterminos').innerHTML = ``
+    }
+    else {
+        document.getElementById('botonterminos').classList.add('estiloerror');
+    document.getElementById('containerterminos').innerHTML =  
+        `<div style='vertical-align: middle;
+        padding: .375rem .75rem;
+        margin-left: 20px;'> Debe aceptar los términos del servicio.</div>`
+}
 
 }
 
