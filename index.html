@@ -10,7 +10,14 @@
   <link href="css/style.css" rel="stylesheet">
 </head>
 
+
+<div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+  <p>Datos guardados correctamente</p>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 <body class="bg-light">
+
+  
 
   <div class="container">
     <main>
@@ -54,10 +61,10 @@
               <div class="invalid-feedback">Debe ser igual a "contraseña".</div>
             </div>
 
-            <div class="col-sm-12">
-              <button type="button" class="btn btn-link ps-0 " data-bs-toggle="modal" 
+            <div class="col-sm-12" >
+              <button id='botonterminos' type="button" class="btn btn-link ps-0" data-bs-toggle="modal" 
                 data-bs-target="#modalTerminos">Términos del servicio</button>
-                <div class="invalid-feedback">Debe aceptar los términos del servicio.</div>
+                <div id="containerterminos" class='estiloerror ps-0 '> </div>
             </div>
 
 
@@ -68,7 +75,11 @@
         </div>
       </form>
 
+     
+
     </main>
+
+
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
       <p class="mb-1">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a
@@ -90,9 +101,9 @@
             Deleniti, adipisci vitae in quaerat eius nemo optio? Quas at magni saepe cumque. Delectus perspiciatis omnis
             accusamus.</p>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer" id="check">
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="terminos" required>
+            <input type="checkbox" class="form-check-input" id="terminos2"  required>
             <label class="form-check-label" for="terminos">Acepto los términos y condiciones del servicio.</label>
             <div class="valid-feedback"></div>
             <div class="invalid-feedback"></div>
