@@ -10,20 +10,22 @@ function validarCheck () {
     if(check.checked) {
         document.getElementById('botonterminos').classList.remove('estiloerror');
         document.getElementById('containerterminos').innerHTML = ``
+        return true
     }
     else {
         document.getElementById('botonterminos').classList.add('estiloerror');
     document.getElementById('containerterminos').innerHTML =  
         `<div style='vertical-align: middle;
         padding: .375rem .75rem;
-        margin-left: 20px;'> Debe aceptar los términos del servicio.</div>`}
+        margin-left: 20px;'> Debe aceptar los términos del servicio.</div>`
+    return false}
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("formulario").addEventListener("submit", validarFormulario);
   check.addEventListener('click', ()=> { validarCheck();  } );
-  pass1.addEventListener("input", ()=> { validarpass();  } );
-  pass2.addEventListener("input", ()=> { validarpass();  } );
+  pass1.addEventListener("input", ()=> { validarpass(); validarpass2 ()  } );
+  pass2.addEventListener("input", ()=> { validarpass(); validarpass2 () } );
 
 });
 
@@ -32,6 +34,7 @@ function validarFormulario(evento) {
   document.getElementById("formulario").classList.add("was-validated");
 
   validarpass();
+  validarpass2 ();
   validarCheck ();
 
 }
@@ -41,26 +44,38 @@ function validarpass () {
  
      pass2.classList.add('is-invalid')
      pass2.classList.remove('is-valid')
-    // return;
+     return false
  }
  else { pass2.classList.remove('is-invalid')
- pass2.classList.add ('is-valid') }
- 
+ pass2.classList.add ('is-valid')
+return true }}
+
+ function validarpass2 (){
     if( pass1.value.length > 5 ) { 
-     pass1.classList.add('is-valid')
-     pass1.classList.remove('is-invalid')
+     pass1.classList.add('is-valid');
+     pass1.classList.remove('is-invalid');
+     return true
     }
-    else { pass1.classList.remove('is-valid')
-    pass1.classList.add('is-invalid')}
+    else { pass1.classList.remove('is-valid');
+    pass1.classList.add('is-invalid');
+    return false}
  }
 
  function showAlertSuccess() {
-    document.getElementById("alert-success").classList.add("show"); 
+    document.getElementById("alert-success").innerHTML = `
+    <div class="alert show alert-success alert-dismissible fade" role="alert" >
+  <p>Datos guardados correctamente</p>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick=closeAlert()></button>
+</div>
+<body class="bg-light">`; 
 }
 
 regBtn.addEventListener("click", function(){
-    if (hhhhh ) {
-        showAlertSuccess();
-    };
-   
+    if(validarpass2() && validarpass() && validarCheck()){
+      showAlertSuccess();  
+    }     
 });
+
+function closeAlert(){
+    document.getElementById("alert-success").innerHTML= ""
+}
