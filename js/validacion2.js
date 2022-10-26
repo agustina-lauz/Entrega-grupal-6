@@ -59,7 +59,7 @@ function validarpass () {
 }
 
 regBtn.addEventListener("click", function(){
-    if ( jjjj) {
+    if (hhhhh ) {
         showAlertSuccess();
     };
    
